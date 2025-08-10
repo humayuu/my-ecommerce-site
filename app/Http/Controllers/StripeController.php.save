@@ -34,13 +34,12 @@ class StripeController extends Controller
             }
 
             // Set Stripe API key (move this to .env file)
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY', 'your-stripe-secret-key-here'));
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY', 'sk_test_51RYCBsK3nIiUm93EDv4IwOipcAJpgRXyNILLDwu185jXETfNUGP2Ix6UztNv0jEllgZCrsoiUQrhkx6lVPErB0DR00G7ZhEcLO'));
 
             // Get the payment token from request (use Laravel's request object)
             $token = $request->stripeToken;
-
-            // Create charge with correct amount (multiply by 100 for cents, not 999)
-            $charge = \Stripe\Charge::create([
+x
+            // Create charge with correct amount (multiply by 100 for cents, not             $charge = \Stripe\Charge::create([
                 'amount' => $totalAmount * 100, // Convert dollars to cents
                 'currency' => 'usd',
                 'description' => 'Order Payment',
